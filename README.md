@@ -10,19 +10,24 @@ It uses a separation of my configs (dotfiles), my data (repos) and my credential
 ## build
 
 ```
-docker build -t kr1sp1n/dock .
-```
-or
-```
 make build
 ```
+
+or
+
+```
+docker build -t kr1sp1n/dock .
+```
+
 
 ## run
 
 ```
-docker run --name dock --rm -it -v ${HOME}/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock --volumes-from data --volumes-from dotfiles kr1sp1n/dock
-```
-or
-```
 make run
+```
+
+or
+
+```
+docker run --privileged --name dock --rm -it -v /etc/localtime:/etc/localtime:ro -v ${HOME}/.ssh:/root/.ssh -v /var/run/docker.sock:/var/run/docker.sock --volumes-from data --volumes-from dotfiles kr1sp1n/dock
 ```

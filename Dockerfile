@@ -1,12 +1,20 @@
 FROM docker:1.11
 
-RUN apk add --no-cache \
+RUN apk add --update --no-cache \
   tmux \
   fish \
   bc \
   git \
-  openssh
+  openssh \
+  tzdata
+
+# openntpd \
 
 ENV SHELL=/usr/bin/fish
+ENV HOSTNAME=dock
 
-ENTRYPOINT tmux
+COPY entrypoint.sh /entrypoint.sh
+
+WORKDIR /data
+
+ENTRYPOINT /entrypoint.sh
