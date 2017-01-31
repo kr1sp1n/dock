@@ -3,10 +3,11 @@ build:
 
 clean:
 	- docker rm -f dock
-	- docker rmi kr1sp1n/dock
+	- docker rm -f data
+	- docker rm -f dotfiles
 
 data:
-	docker create -v ${HOME}/Code:/data --name data tianon/true
+	docker create -v ${HOME}:/data --name data tianon/true
 
 dotfiles:
 	docker create -v /root --name dotfiles kr1sp1n/dotfiles

@@ -23,7 +23,7 @@ docker build -t kr1sp1n/dock .
 ## run
 
 ```
-make run
+make clean data dotfiles run
 ```
 
 or

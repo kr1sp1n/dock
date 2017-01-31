@@ -6,7 +6,8 @@ RUN apk add --update --no-cache \
   bc \
   git \
   openssh \
-  tzdata
+  tzdata \
+  make
 
 # openntpd \
 
